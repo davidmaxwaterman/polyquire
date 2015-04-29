@@ -1,0 +1,33 @@
+<link rel="import" href="my-dcsp.html">
+<link rel="import" href="my-dpe.html">
+
+<polymer-element name="my-de">
+  <template>
+    <my-dcsp>
+    </my-dcsp>
+
+    <my-dpe>
+    </my-dpe>
+  </template>
+
+  <script>
+    var deReady = new Promise( function (resolve, reject) {
+      Promise.all([dcspReady]).then( function () {
+        require(
+        [
+          'lodash',
+          'js-signals'
+        ],
+        function (
+          _,
+          signals
+        ) {
+          Polymer('my-de', {
+          }); // Polymer
+
+          resolve();
+        }); // require
+      }); // Promise.all
+    }); // Promise
+  </script>
+</polymer-element>

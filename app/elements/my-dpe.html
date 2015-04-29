@@ -1,0 +1,15 @@
+<polymer-element name="my-dpe">
+  <template>
+  </template>
+
+  <script>
+    var dpeReady = new Promise( function (resolve, reject) {
+      require(['js-signals', 'lodash'], function (signals, _) {
+        Polymer('my-dpe', {
+        }); // Polymer
+
+        resolve();
+      }); // require
+    }); // Promise
+  </script>
+</polymer-element>

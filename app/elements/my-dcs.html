@@ -1,0 +1,15 @@
+<polymer-element name="my-dcs">
+  <template>
+  </template>
+
+  <script>
+    var dcsReady = new Promise( function (resolve, reject) {
+      require(['lodash', 'js-signals'], function (_, signals) {
+        Polymer('my-dcs', {
+        }); // Polymer
+
+        resolve();
+      }); // require
+    }); // Promise
+  </script>
+</polymer-element>

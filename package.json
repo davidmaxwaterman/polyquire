@@ -1,0 +1,21 @@
+{
+  "name": "polyquire",
+  "version": "0.0.0",
+  "description": "You need bower and npm",
+  "main": "app/index.html",
+  "directories": {
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+  },
+  "author": "",
+  "license": "BSD",
+  "bugs": {
+  },
+  "homepage": "",
+  "devDependencies": {
+    "grunt-http-server": "^1.2.0"
+  }
+}

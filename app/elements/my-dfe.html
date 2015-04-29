@@ -1,0 +1,15 @@
+<polymer-element name="my-dfe">
+  <template>
+  </template>
+
+  <script>
+    var dfeReady = new Promise( function (resolve, reject) {
+      require([], function () {
+        Polymer('my-dfe', {
+        }); // Polymer
+
+        resolve();
+      }); // require
+    }); // Promise
+  </script>
+</polymer-element>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test for using require with polymer</title>
+    <meta charset="utf-8">
+
+    <!-- Bower Libraries -->
+    <script src="../bower_components/webcomponentsjs/webcomponents.js"></script>
+    <script src="../bower_components/system.js/dist/system.js"></script>
+    <!--script src="../bower_components/requirejs/require.js" data-main="js/amd"></script-->
+
+    <!-- Browserified Libraries -->
+
+    <link rel="import" href="../bower_components/polymer/polymer.html">
+
+    <!-- other Polymer elements -->
+
+    <!-- custom elements -->
+    <link rel="import" href="./elements/my-de.html">
+    <link rel="import" href="./elements/my-dcsp.html">
+    <link rel="import" href="./elements/my-dfu.html">
+    <link rel="import" href="./elements/my-dfe.html">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  </head>
+  <body fit unresolved fullbleed layout vertical>
+
+    <my-dfu id="dfui" accept=".fbp" title="import as FBP">
+    </my-dfu>
+
+    <my-dfe id="dfe">
+    </my-dfe>
+
+    <my-dfu id="dfuu">
+    </my-dfu>
+
+    <my-de id="de"
+      width="800" height="600"
+      grid="72"
+      snap="36"
+      theme="dark">
+    </my-de>
+
+    <script>
+      document.addEventListener('polymer-ready', function () {
+        requireReady
+        .then(Promise.all([
+          deReady,
+          dcspReady,
+          dfuReady,
+          dfeReady
+        ]))
+        .then(function () {
+          var el = document.createElement('my-dcsp');
+          el.setAttribute('id', 'dcsp');
+          el.setAttribute('heading', 'some text');
+          document.body.appendChild(el);
+
+          require(['main']);
+        });
+      });
+    </script>
+
+  </body>
+</html>

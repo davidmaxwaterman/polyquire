@@ -1,0 +1,15 @@
+<polymer-element name="my-dcd">
+  <template>
+  </template>
+
+  <script>
+    var dcdReady = new Promise( function (resolve, reject) {
+      require(['js-signals'], function (signals) {
+        Polymer('my-dcd', {
+        }); // Polymer
+
+        resolve();
+      }); // require
+    }); // Promise
+  </script>
+</polymer-element>

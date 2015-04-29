@@ -1,0 +1,15 @@
+<polymer-element name="my-dfu">
+  <template>
+  </template>
+
+  <script>
+    var dfuReady = new Promise( function (resolve, reject) {
+      require(['js-signals'], function (signals) {
+        Polymer('my-dfu', {
+        }); // Polymer
+
+        resolve();
+      }); // require
+    }); // Promise
+  </script>
+</polymer-element>

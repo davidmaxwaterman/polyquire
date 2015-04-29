@@ -1,0 +1,21 @@
+<link rel="import" href="./my-dcs.html">
+
+<polymer-element name="my-dcsp">
+  <template>
+    <my-dcs>
+    </my-dcs>
+  </template>
+
+  <script>
+    var dcspReady = new Promise( function (resolve, reject) {
+      Promise.all([dcsReady]).then( function () {
+        require(['js-signals'], function (signals) {
+          Polymer('my-dcsp', {
+          }); // Polymer
+
+          resolve();
+        }); // require
+      }); // Promise.all
+    }); // Promise
+  </script>
+</polymer-element>
