@@ -7,15 +7,14 @@
   </template>
 
   <script>
-    var dcspReady = new Promise( function (resolve, reject) {
-      Promise.all([dcsReady]).then( function () {
-        require(['js-signals'], function (signals) {
-          Polymer('my-dcsp', {
-          }); // Polymer
-
-          resolve();
-        }); // require
-      }); // Promise.all
-    }); // Promise
+    var dcspReady = Promise.all([
+      System.import('js-signals'),
+      dcsReady
+    ])
+    .then(function (imports) {
+      var signals = imports[0];
+      Polymer('my-dcsp', {
+      });
+    });
   </script>
 </polymer-element>

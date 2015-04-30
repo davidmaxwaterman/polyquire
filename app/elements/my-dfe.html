@@ -3,13 +3,10 @@
   </template>
 
   <script>
-    var dfeReady = new Promise( function (resolve, reject) {
-      require([], function () {
-        Polymer('my-dfe', {
-        }); // Polymer
-
-        resolve();
-      }); // require
-    }); // Promise
+    var dfeReady = Promise.all([])
+    .then(function () {
+      Polymer('my-dfe', {
+      });
+    });
   </script>
 </polymer-element>

@@ -3,13 +3,22 @@
   </template>
 
   <script>
-    var dpeReady = new Promise( function (resolve, reject) {
-      require(['js-signals', 'lodash'], function (signals, _) {
-        Polymer('my-dpe', {
-        }); // Polymer
+    var dpeReady = Promise.all([
+      System.import('js-signals'),
+      System.import('lodash')
+    ])
+    .then(function (imports) {
+      // I'd really like to use es6's array deconstructor to do
+      // function ([signals, _]), in a similar way to requirejs
+      var signals = imports[0];
+      var _ = imports[1];
 
-        resolve();
-      }); // require
-    }); // Promise
+      Polymer('my-dpe', {
+        created: function () {
+          console.log('MAXMAXMAX', signals);
+          console.log('MAXMAXMAX', _);
+        }
+      });
+    });
   </script>
 </polymer-element>

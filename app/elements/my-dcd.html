@@ -3,13 +3,13 @@
   </template>
 
   <script>
-    var dcdReady = new Promise( function (resolve, reject) {
-      require(['js-signals'], function (signals) {
-        Polymer('my-dcd', {
-        }); // Polymer
-
-        resolve();
-      }); // require
-    }); // Promise
+    var dcdReady = Promise.all([
+      System.import('js-signals')
+    ])
+    .then(function (imports) {
+      var signals = imports[0];
+      Polymer('my-dcd', {
+      });
+    });
   </script>
 </polymer-element>

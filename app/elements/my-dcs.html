@@ -3,13 +3,15 @@
   </template>
 
   <script>
-    var dcsReady = new Promise( function (resolve, reject) {
-      require(['lodash', 'js-signals'], function (_, signals) {
-        Polymer('my-dcs', {
-        }); // Polymer
-
-        resolve();
-      }); // require
-    }); // Promise
+    var dcsReady = Promise.all([
+      System.import('lodash'),
+      System.import('js-signals'),
+    ])
+    .then(function(imports) {
+      var _ = imports[0];
+      var signals = imports[1];
+      Polymer('my-dcs', {
+      });
+    });
   </script>
 </polymer-element>

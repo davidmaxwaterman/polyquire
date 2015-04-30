@@ -3,13 +3,13 @@
   </template>
 
   <script>
-    var dfuReady = new Promise( function (resolve, reject) {
-      require(['js-signals'], function (signals) {
-        Polymer('my-dfu', {
-        }); // Polymer
-
-        resolve();
-      }); // require
-    }); // Promise
+    var dfuReady = Promise.all([
+      System.import('js-signals')
+    ])
+    .then(function (imports) {
+      var signals = imports[0];
+      Polymer('my-dfu', {
+      });
+    });
   </script>
 </polymer-element>

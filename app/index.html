@@ -6,8 +6,28 @@
 
     <!-- Bower Libraries -->
     <script src="../bower_components/webcomponentsjs/webcomponents.js"></script>
-    <script src="../bower_components/requirejs/require.js"></script>
-    <script src="js/amd.js"></script>
+    <script src="../bower_components/es6-module-loader/dist/es6-module-loader.js"></script>
+    <script src="../bower_components/systemjs/dist/system.js"></script>
+
+    <script>
+    System.config({
+      baseUrl: './js/',
+      map: {
+        'q': '../../bower_components/q/q',
+        'lodash': '../../bower_components/lodash/lodash',
+        'js-signals': '../../bower_components/js-signals/dist/signals',
+        'React': '../../bower_components/react/react'
+      },
+
+      // define shims here
+      meta: {
+        '../bower_components/js-signals/dist/signals': {
+          format: 'global',
+          exports: 'signals'
+        }
+      }
+    });
+    </script>
 
     <!-- Browserified Libraries -->
 
@@ -24,6 +44,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
   </head>
   <body fit unresolved fullbleed layout vertical>
+    <my-dcsp id="dcsp" heading="some text"></my-dcsp>
 
     <my-dfu id="dfui" accept=".fbp" title="import as FBP">
     </my-dfu>
@@ -42,22 +63,7 @@
     </my-de>
 
     <script>
-      document.addEventListener('polymer-ready', function () {
-        Promise.all([
-          deReady,
-          dcspReady,
-          dfuReady,
-          dfeReady
-        ])
-        .then(function () {
-          var el = document.createElement('my-dcsp');
-          el.setAttribute('id', 'dcsp');
-          el.setAttribute('heading', 'some text');
-          document.body.appendChild(el);
-
-          require(['main']);
-        });
-      });
+    System.import('js/main');
     </script>
 
   </body>

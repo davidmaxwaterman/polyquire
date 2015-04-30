@@ -11,23 +11,20 @@
   </template>
 
   <script>
-    var deReady = new Promise( function (resolve, reject) {
-      Promise.all([dcspReady]).then( function () {
-        require(
-        [
-          'lodash',
-          'js-signals'
-        ],
-        function (
-          _,
-          signals
-        ) {
-          Polymer('my-de', {
-          }); // Polymer
-
-          resolve();
-        }); // require
-      }); // Promise.all
-    }); // Promise
+    var deReady = Promise.all([
+      System.import('lodash'),
+      System.import('js-signals'),
+      dcspReady,
+      dpeReady
+    ])
+    .then(function (imports) {
+      var _ = imports[0];
+      var signals = imports[1];
+      Polymer('my-de', {
+        created: function () {
+          console.log('MAXMAXMAX', signals);
+        }
+      });
+    });
   </script>
 </polymer-element>

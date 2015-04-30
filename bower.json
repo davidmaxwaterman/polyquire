@@ -6,10 +6,11 @@
   "license": "BSD",
   "ignore": [],
   "dependencies": {
-    "requirejs": "~2.1.16",
     "js-signals": "https://github.com/millermedeiros/js-signals.git#~1.0.0",
     "lodash": "~3.5.0",
-    "polymer": "Polymer/polymer#~0.5.5"
+    "polymer": "Polymer/polymer#~0.5.5",
+    "systemjs": "https://github.com/systemjs/systemjs.git#~0.16.10",
+    "es6-module-loader": "https://github.com/ModuleLoader/es6-module-loader.git#~0.16.6"
   },
   "resolutions": {
     "polymer": "~0.5.5"
