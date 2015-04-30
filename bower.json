@@ -9,9 +9,7 @@
     "requirejs": "~2.1.16",
     "js-signals": "https://github.com/millermedeiros/js-signals.git#~1.0.0",
     "lodash": "~3.5.0",
-    "polymer": "Polymer/polymer#~0.5.5",
-    "es6-module-loader": "~0.16.6",
-    "system.js": "~0.16.10"
+    "polymer": "Polymer/polymer#~0.5.5"
   },
   "resolutions": {
     "polymer": "~0.5.5"

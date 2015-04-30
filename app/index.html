@@ -6,8 +6,8 @@
 
     <!-- Bower Libraries -->
     <script src="../bower_components/webcomponentsjs/webcomponents.js"></script>
-    <script src="../bower_components/system.js/dist/system.js"></script>
-    <!--script src="../bower_components/requirejs/require.js" data-main="js/amd"></script-->
+    <script src="../bower_components/requirejs/require.js"></script>
+    <script src="js/amd.js"></script>
 
     <!-- Browserified Libraries -->
 
@@ -43,13 +43,12 @@
 
     <script>
       document.addEventListener('polymer-ready', function () {
-        requireReady
-        .then(Promise.all([
+        Promise.all([
           deReady,
           dcspReady,
           dfuReady,
           dfeReady
-        ]))
+        ])
         .then(function () {
           var el = document.createElement('my-dcsp');
           el.setAttribute('id', 'dcsp');
